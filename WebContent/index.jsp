@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="forgetPwd" method="post">
+Enter name : <input type="text" name="yourname" size="10">
+			 <input type="submit" value="Called Servlet">
 </body>
 </html>
