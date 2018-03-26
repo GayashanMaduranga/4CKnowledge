@@ -63,7 +63,7 @@ public class ForgetPwd extends HttpServlet {
 				
 			
 				request.getRequestDispatcher("forget_password.html").include(request, response);
-				out.print("Sorry, username not founded");
+				out.print("<center><h3>Sorry, username not founded</h3></center>");
 			}
 		}
 		catch (SQLException e) {
