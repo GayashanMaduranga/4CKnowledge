@@ -50,7 +50,7 @@ public class EmailSupplierInterface {
        
        {
     	 Random randomGen = new Random();
-   		int randomInt = randomGen.nextInt(10000);
+   		int randomInt = randomGen.nextInt(9000)+1000;
    		StoreVerification.VerificationCodeStore(randomInt,e);
    		
     	   String EMAIL="<center><h1><u>4C Knowledge</u></h1></center><table border=5 width=25% height=100% align=\"center\"> <tr><th>Verification Code</th></tr>" ;
@@ -93,7 +93,7 @@ public class EmailSupplierInterface {
  
 		// Enter your correct gmail UserID and Password
 		// if you have 2FA enabled then provide App Specific Password
-		transport.connect("smtp.gmail.com", "itp.metro2017@gmail.com", "krishan1996");
+		transport.connect("smtp.gmail.com", "4c.knowledge@gmail.com", "sliit2020");
 		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
 		transport.close();
 	}

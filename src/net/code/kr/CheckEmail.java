@@ -33,10 +33,6 @@ public class CheckEmail {
             return -1;
       
       }
-    public static void main(String[] args) throws SQLException {
-     int k=FindUser("krishan@k.com");
-     System.out.println(k);
-     
-    }
+    
    	 
 }
