@@ -31,4 +31,33 @@ public class MyTest {
 		}
 	}
 	
+	@Test
+	public void canDeleteMember() {
+		System.out.println("Delete User");
+		
+		Member m = new Member();
+		m.setId(7);
+		
+		MemberDao dao = new MemberDao();
+		dao.removeMember(m);
+		
+		
+		
+	}
+	
+	@Test
+	public void canUpdateMember() {
+		MemberDao dao = new MemberDao();
+		ArrayList<Member> members =(ArrayList<Member>) dao.searchMembers("new");
+		
+		System.out.println("update" + members.get(0));
+		
+		members.get(0).setFname("test");
+		
+		
+		dao.updateMember(members.get(0));
+		System.out.println("update" + members.get(0));
+		
+	}
+	
 }

@@ -87,6 +87,12 @@ public class Member {
 	public void setVerificationCode(String verificationCode) {
 		this.verificationCode = verificationCode;
 	}
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", email=" + email + ", fname=" + fname + ", lname=" + lname + ", password="
+				+ password + ", address=" + address + ", mobile=" + mobile + ", homeTel=" + homeTel + ", dob=" + dob
+				+ ", userLevel=" + userLevel + ", verificationCode=" + verificationCode + "]";
+	}
 	
 
 }
