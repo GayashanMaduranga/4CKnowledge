@@ -20,4 +20,15 @@ public class MyTest {
 		
 	}
 	
+	@Test
+	public void canSearchMembers() {
+		System.out.println("Search");
+		MemberDao dao = new MemberDao();
+		ArrayList<Member> members =(ArrayList<Member>) dao.searchMembers("gayashan kariya");
+		
+		for(Member me: members) {
+		System.out.println(me.getEmail());
+		}
+	}
+	
 }

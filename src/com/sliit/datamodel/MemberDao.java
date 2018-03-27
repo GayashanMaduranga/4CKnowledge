@@ -16,7 +16,10 @@ public class MemberDao {
 	
 		ArrayList<Member> members = null;
 		Connection conn = DBConnection.getConnectionToDatabase();
-		String query = "select * from members where fname like '%"+searchString+"%'";
+//		String query = "select * from members where (fname like '%"+searchString+
+//											"%' or lname like '%"+searchString+"%'";
+		
+		String query = "select * from members where concat(fname,' ',lname) like '%"+searchString+"%' ";
 	
 		Statement stmt ;
 		try {
