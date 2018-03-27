@@ -15,7 +15,7 @@ public class Member {
 	private String homeTel;
 	private Date dob;
 	private int userLevel;
-
+	private String verificationCode;
 	
 		
 	public Member() {
@@ -81,10 +81,12 @@ public class Member {
 	public void setUserLevel(int userLevel) {
 		this.userLevel = userLevel;
 	}
-	
-	
-
-	
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
 	
 
 }
