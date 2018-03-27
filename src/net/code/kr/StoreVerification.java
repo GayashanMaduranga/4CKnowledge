@@ -12,7 +12,7 @@ public class StoreVerification {
 
          
          // Prepared statement to insert data
-             String insertSql = " UPDATE test SET Vcode = ?  WHERE Email = ?  " ;
+             String insertSql = " UPDATE members SET verification_code = ?  WHERE email = ?  " ;
 
             
              try (PreparedStatement prep = connection.prepareStatement(insertSql)) {
