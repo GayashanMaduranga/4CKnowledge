@@ -1,4 +1,4 @@
-package com.sliit.dao;
+package com.sliit.datamodel;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
