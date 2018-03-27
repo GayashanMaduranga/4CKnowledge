@@ -13,8 +13,8 @@ public class MemberDao {
 
 	public List<Member> searchMembers(String searchString) {
 		
-		Member member = null;
-		ArrayList<Member> members = new ArrayList<>();
+	
+		ArrayList<Member> members = null;
 		Connection conn = DBConnection.getConnectionToDatabase();
 		String query = "select * from members where fname like '%"+searchString+"%'";
 	
@@ -23,45 +23,20 @@ public class MemberDao {
 			
 			stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
-			
-			while(rs.next()) {
-				member = new Member();
-				member.setFname(rs.getString("fname"));
-				member.setLname(rs.getString("lname"));
-				member.setEmail(rs.getString("email"));
-				member.setAddress(rs.getString("address"));
-				member.setMobile(rs.getString("mobile"));
-				member.setMobile(rs.getString("home_tel"));
-				member.setDob(rs.getDate("dob"));
-				member.setUserLevel(rs.getInt("user_level"));
-				member.setPassword(rs.getString("password"));	
-				member.setVerificationCode(rs.getString("verification_code"));
+			members=(ArrayList<Member>)resultsetToArrayList(rs);
 				
-				//add the rest
-				
-				
-				members.add(member);
-				
-			
-			}
-			
-			
-			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
-		
-		
-		
 		
 		return members;
 	}
 	
 public List<Member> getAllMembers() {
 		
-		Member member = null;
-		ArrayList<Member> members = new ArrayList<>();
+		
+		ArrayList<Member> members =null;
 		Connection conn = DBConnection.getConnectionToDatabase();
 		String query = "select * from members";
 	
@@ -71,39 +46,54 @@ public List<Member> getAllMembers() {
 			stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			
-			while(rs.next()) {
-				member = new Member();
-				member.setFname(rs.getString("fname"));
-				member.setLname(rs.getString("lname"));
-				member.setEmail(rs.getString("email"));
-				member.setAddress(rs.getString("address"));
-				member.setMobile(rs.getString("mobile"));
-				member.setMobile(rs.getString("home_tel"));
-				member.setDob(rs.getDate("dob"));
-				member.setUserLevel(rs.getInt("user_level"));
-				member.setPassword(rs.getString("password"));	
-				member.setVerificationCode(rs.getString("verification_code"));
-				
-				//add the rest
-				
-				
-				members.add(member);
-				
-			
-			}
-			
-			
+			members=(ArrayList<Member>)resultsetToArrayList(rs);
 			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
 		
-		
-		
-		
 		return members;
+		
+		
 	}
 	
+
+	private List<Member> resultsetToArrayList(ResultSet rs){
+		
+		Member member = null;
+		ArrayList<Member> members = new ArrayList<>();
+		
+	try {
+			
+			while(rs.next()) {
+			member = new Member();
+			
+			member.setFname(rs.getString("fname"));
+			member.setLname(rs.getString("lname"));
+			member.setEmail(rs.getString("email"));
+			member.setAddress(rs.getString("address"));
+			member.setMobile(rs.getString("mobile"));
+			member.setMobile(rs.getString("home_tel"));
+			member.setDob(rs.getDate("dob"));
+			member.setUserLevel(rs.getInt("user_level"));
+			member.setPassword(rs.getString("password"));	
+			member.setVerificationCode(rs.getString("verification_code"));
+			
+			//add the rest
+			
+			
+				members.add(member);
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+			
+		return members;
+		
+	}
 
 }
