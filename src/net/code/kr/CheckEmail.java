@@ -13,7 +13,7 @@ public class CheckEmail {
     public static int FindUser(String email) throws SQLException{
         Connection connection = getConnection();
             
-            String selectSql = "SELECT  STRCMP(t.Email, ?)" + "FROM test t " +"Where t.Email LIKE ?"  ;
+            String selectSql = "SELECT  STRCMP(m.email, ?)" + "FROM members m " +"Where m.email LIKE ?"  ;
 
             try(PreparedStatement prep = connection.prepareStatement(selectSql)) {
                 

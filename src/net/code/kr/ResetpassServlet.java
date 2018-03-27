@@ -2,8 +2,6 @@ package net.code.kr;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class EmailVerify
+ * Servlet implementation class ResetpassServlet
  */
-@WebServlet("/emailVerify")
-public class EmailVerify extends HttpServlet {
+@WebServlet("/resetpassServlet")
+public class ResetpassServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmailVerify() {
+    public ResetpassServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,49 +29,57 @@ public class EmailVerify extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.setContentType("text/html");
+
+        response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
+
 		
-		int code=Integer.parseInt(request.getParameter("Code"));
+      try {  String password=request.getParameter("password");
+        String Cpassword=request.getParameter("confirmpassword");
 		HttpSession session=request.getSession(false);
 		if(session!=null){
-			
-		String Email=(String)session.getAttribute("Email");
-		int Vcode = 0;
-		try {
-			Vcode = GetVerifyCode.getUserVcode(Email);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+     	String Email=(String)session.getAttribute("Email");
 		
-			if(Vcode!=-1)
+		
+		
+			if(password.equals(Cpassword))
 			{
-			
-			if(code==Vcode)
-		     	{
-				session.setMaxInactiveInterval(60);
-				 request.getRequestDispatcher("recoveryPassword.html").include(request, response);
-			    }
-			else {
-			      request.getRequestDispatcher("email_verify.html").include(request, response);
-			      session.setMaxInactiveInterval(20);
+				Resetpassword.Resetpwd(password,Email);
+			    request.getRequestDispatcher("reset_successfully.jsp").include(request, response);
+			    out.print(" <center><h1>Password Reset Successful !</h1></center>");
 
-				}
+				 session.setMaxInactiveInterval(20);
+			   
+					
+
+			     
+
+			
 			}
-		
+			else{
+				
+			      request.getRequestDispatcher("recoveryPassword.html").include(request, response);
+			      session.setMaxInactiveInterval(60);
+
+				
+			     }
 			
 		
 		}
-		else{
+		
+		else {
 			
-
 			request.getRequestDispatcher("forget_password.html").include(request, response);
 			out.print("<center><h1>Your session has timed out ,try again ! </h1></center>");
+			
+	     	}
+		
+      }
+		catch(Exception e){
+			
+			request.getRequestDispatcher("forget_password.html").include(request, response);
 		}
 		
 	}
-	}
 
-
+}

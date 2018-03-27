@@ -34,7 +34,7 @@ public class ForgetPwd extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.sendRedirect("http://www.google.com");
+		
 		
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
@@ -54,6 +54,10 @@ public class ForgetPwd extends HttpServlet {
 			finally {
 				HttpSession session=request.getSession();
 				session.setAttribute("Email",Email);
+				session.setMaxInactiveInterval(60);
+
+
+
 				request.getRequestDispatcher("email_verify.html").include(request, response);
 
 			      }

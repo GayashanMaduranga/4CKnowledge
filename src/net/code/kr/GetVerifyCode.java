@@ -12,7 +12,7 @@ public class GetVerifyCode {
 	 public static int getUserVcode(String email) throws SQLException{
 	        Connection connection = getConnection();
 	            
-	            String selectSql = "SELECT Vcode " + "FROM test  " +" where Email = ? "  ;
+	            String selectSql = "SELECT verification_code " + "FROM  members " +" where email = ? "  ;
 
 	            try(PreparedStatement prep = connection.prepareStatement(selectSql)) {
 	                
