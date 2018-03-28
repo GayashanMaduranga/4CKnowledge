@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.code.kr.CheckEmail;
+import net.code.kr.Resetpassword;
 import net.code.krRegister.RegisterEmailVerificationInteraface;
 
 
@@ -41,51 +42,73 @@ public class RegisterServlet extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		
 		String Email=request.getParameter("Email");
-		String name=request.getParameter("Name");
+		String Fname=request.getParameter("Fname");
+		String Lname=request.getParameter("Lname");
 		String Caddress=request.getParameter("CAddress");
 		String mobile=request.getParameter("mobile");
 		String HomeTel=request.getParameter("Hometel");
 		String password=request.getParameter("password");
 		String Cpassword=request.getParameter("Cpassword");
 		//String DoB=request.getParameter("dob");
+		
+		HttpSession session=request.getSession();
+
 		int Vcode = 0;
 		
 		try {
 			if(CheckEmail.FindUser(Email)!=0)
 			{
-			try {
-				Vcode=RegisterEmailVerificationInteraface.generateAndSendEmail(Email);
 				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			finally {
-				HttpSession session=request.getSession();
-				session.setAttribute("Email",Email);
-				session.setAttribute("Name",name);
-				session.setAttribute("CAddress",Caddress);
-				session.setAttribute("mobile",mobile);
-				session.setAttribute("Hometel",HomeTel);
-				session.setAttribute("password",password);
-				//session.setAttribute("dob",DoB);
-				session.setAttribute("Vcode",Vcode);
+				
+				if(password.equals(Cpassword))
+				{
+					
+					
+					try {
+						Vcode=RegisterEmailVerificationInteraface.generateAndSendEmail(Email);
+						
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					finally {
+						session.setAttribute("Email",Email);
+						session.setAttribute("Fname",Fname);
+						session.setAttribute("Lname",Lname);
+						session.setAttribute("CAddress",Caddress);
+						session.setAttribute("mobile",mobile);
+						session.setAttribute("Hometel",HomeTel);
+						session.setAttribute("password",password);
+						//session.setAttribute("dob",DoB);
+						session.setAttribute("Vcode",Vcode);
+					
+						
+						session.setMaxInactiveInterval(60);
+
+						request.getRequestDispatcher("Register_email_verify.jsp").include(request, response);
+
+					      }
+					
+				 }
+					else{
+					
+						request.getRequestDispatcher("Login.html").include(request, response);
+				        }
+				
+				
+				
+				
 			
-				
-				//session.setMaxInactiveInterval(60);
-
-
-
-				request.getRequestDispatcher("Register_email_verify.jsp").include(request, response);
-
-			      }
+			
+			
+			
 			}
 			else {
 				
-				
-			
+				out.print("<center><h1>Already you have acoount</h1></center>");
+
 				request.getRequestDispatcher("Login.html").include(request, response);
-			out.print("<center><h3>Already you can acoount</h3></center>");
+			
 			}
 		}
 		catch (SQLException e) {
