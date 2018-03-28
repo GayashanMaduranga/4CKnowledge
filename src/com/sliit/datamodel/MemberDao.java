@@ -129,6 +129,48 @@ public void updateMember(Member member) {
 		
 		
 	}
+
+
+public void insertMember(Member member) {
+	
+	Connection conn = DBConnection.getConnectionToDatabase();
+	String query = "insert into members("
+			+ "fname,"
+			+ "lname,"
+			+ "email,"
+			+ "address,"
+			+ "mobile,"
+			+ "home_tel,"
+			+ "dob,"
+			+ "user_level,"
+			+ "password"
+			+ ") values(?,?,?,?,?,?,?,?,?);";
+
+	PreparedStatement stmt ;
+	try {
+		
+		stmt = conn.prepareStatement(query);
+		stmt.setString(1, member.getFname());
+		stmt.setString(2, member.getLname());
+		stmt.setString(3, member.getEmail());
+		stmt.setString(4, member.getAddress());
+		stmt.setString(5, member.getMobile());
+		stmt.setString(6, member.getHomeTel());
+		stmt.setDate(7, member.getDob());
+		stmt.setInt(8, member.getUserLevel());
+		stmt.setString(9, member.getPassword());
+		
+		stmt.executeUpdate();
+		
+		
+		 conn.close();
+	} catch (SQLException e) {
+		
+		e.printStackTrace();
+	}
+	
+	
+}
 	private List<Member> resultsetToArrayList(ResultSet rs){
 		
 		Member member = null;
