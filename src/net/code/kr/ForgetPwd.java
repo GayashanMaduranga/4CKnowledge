@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.code.kr.EmailSupplierInterface;
+import net.code.kr.EmailGeneratorInterface;
 
 /**
  * Servlet implementation class ForgetPwd
@@ -46,7 +46,7 @@ public class ForgetPwd extends HttpServlet {
 			if(CheckEmail.FindUser(Email)==0)
 			{
 			try {
-				EmailSupplierInterface.generateAndSendEmail(Email);
+				EmailGeneratorInterface.generateAndSendEmail(Email);
 			} catch (MessagingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

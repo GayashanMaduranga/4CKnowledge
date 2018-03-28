@@ -16,7 +16,7 @@ public class DBConnection {
 			System.out.println("MySQL JDBC Driver Registered!");
 
 			//Created this class temporally 
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/4CKnowledge", "root", "\\&4+S:3<!'0!OsK");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/4CKnowledge", "root", "");
 		} catch (ClassNotFoundException e) {
 			
 			System.out.println("Where is your MySQL JDBC Driver?");
