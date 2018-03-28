@@ -1,6 +1,4 @@
-package net.code.kr;
-
-
+package net.code.krRegister;
 
 import java.sql.SQLException;
 import java.util.Properties;
@@ -14,25 +12,17 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+
+
+public class RegisterEmailVerificationInteraface {
+	
+	
+	
+	
+	
+	
+	
  
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Krishan
- */
-public class EmailSupplierInterface {
-    
-    
-
-
-
-    
     
     
     
@@ -46,12 +36,11 @@ public class EmailSupplierInterface {
 	}
         
         
-       public static String designMail(String e) throws SQLException
+       public static String designMail(int randomInt) throws SQLException
        
        {
-    	 Random randomGen = new Random();
-   		int randomInt = randomGen.nextInt(9000)+1000;
-   		StoreVerification.VerificationCodeStore(randomInt,e);
+    	
+   		
    		
     	   String EMAIL="<center><h1><u>4C Knowledge</u></h1></center><table border=5 width=25% height=100% align=\"center\"> <tr><th>Verification Code</th></tr>" ;
 
@@ -62,8 +51,11 @@ public class EmailSupplierInterface {
     	   
        }
  
-	public static void generateAndSendEmail(String Semail) throws AddressException, MessagingException, SQLException {
-		String pass=designMail(Semail);
+	public static int generateAndSendEmail(String Semail) throws AddressException, MessagingException, SQLException {
+		
+		 Random randomGen = new Random();
+	  int randomInt = randomGen.nextInt(9000)+1000;
+		String pass=designMail(randomInt);
 		
 		
 		
@@ -96,7 +88,10 @@ public class EmailSupplierInterface {
 		transport.connect("smtp.gmail.com", "4c.knowledge@gmail.com", "sliit2020");
 		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
 		transport.close();
+		return randomInt;
 	}
     
     
+	
+
 }

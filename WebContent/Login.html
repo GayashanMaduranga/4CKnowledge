@@ -68,7 +68,7 @@
 </div>
 
 <div id="loginForm" class="container col-sm-6">
-  <form class="form-inline" action="login.php" method="post">
+  <form class="form-inline" action="loginServlet" method="post">
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="Email" placeholder="Enter email" name="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
@@ -93,11 +93,11 @@
 </div>
 <div id="regForm" class="container col-sm-5">
   <h2>Member Registration</h2>
-  <form action="new.php" method="post">
+  <form action="registerServlet" method="post">
    
     <div class="form-group">
       <label for="memName">Member Name:</label>
-      <input type="text" class="form-control" id="memName" placeholder="Enter Member Name" name="memName" pattern="[A-Za-z ]{1,40}" required  title="Member Name should only contain letters. e.g. Saman" >
+      <input type="text" class="form-control" id="memName" placeholder="Enter Member Name" name="Name" pattern="[A-Za-z ]{1,40}" required  title="Member Name should only contain letters. e.g. Saman" >
     </div>
 
      <div class="form-group">
@@ -106,19 +106,19 @@
 
       <div class="form-group">
       <label for="shopName">Current Address:</label>
-      <input type="text" class="form-control" id="memAddress" placeholder="Enter Current Address" name="memAddress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  required  title="" >
+      <input type="text" class="form-control" id="CAddress" placeholder="Enter Current Address" name="CAddress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  required  title="" >
     </div>
 
     
     <div class="form-group">
       <label for="memMob">Mobile :</label>
-      <input type="text" class="form-control" id="memMob" placeholder="Enter Mobile Number" name="memMob" pattern="[0-9-+]{10,10}" title="Mobile Number should contain only 10 numbers" required >
+      <input type="text" class="form-control" id="mobile" placeholder="Enter Mobile Number" name="mobile" pattern="[0-9-+]{10,10}" title="Mobile Number should contain only 10 numbers" required >
 
     </div>
 
  <div class="form-group">
       <label for="memHome">Home Tel :</label>
-      <input type="text" class="form-control" id="memHome" placeholder="Enter Home Telephone Number" name="memHome" pattern="[0-9-+]{10,10}" title="Home Telephone Number should contain only 10 numbers" required >
+      <input type="text" class="form-control" id="Hometel" placeholder="Enter Home Telephone Number" name="Hometel" pattern="[0-9-+]{10,10}" title="Home Telephone Number should contain only 10 numbers" required >
 
     </div>
      <div class="form-group">
@@ -129,7 +129,7 @@
     
        <div class="form-group">
       <label for="password">Confirm Password:</label>
-      <input type="password" class="form-control" id="password" placeholder="Confirm Password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required >
+      <input type="password" class="form-control" id="Cpassword" placeholder="Confirm Password" name="Cpassword"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required >
 
     </div>
 	
