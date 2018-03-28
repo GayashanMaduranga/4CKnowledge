@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+@media (max-width:992px){
+.container-fluid .row #hide {
+	display: none;
+}
+	#navbarDropdown2{
+		display: none;
+	}
+
+}
+
+@media (min-width:992px){
+
+#hideForLarge {
+/*	display: none;*/
+	visibility: hidden;
+	
+}
+
+}
+#content {
+	padding: 1em;
+}
+
+.sideNavBtn:hover{
+	border-bottom: 1px solid white;
+}
