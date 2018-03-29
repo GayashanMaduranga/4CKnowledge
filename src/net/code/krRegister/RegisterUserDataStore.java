@@ -8,12 +8,12 @@ import java.sql.SQLException;
 
 public class RegisterUserDataStore {
 	
-	 public static  void DataStore(String Fname,String Lanme,String email,String add ,String mobile ,String Htel,String password) throws SQLException {
+	 public static  void DataStore(String Fname,String Lanme,String email,String add ,String mobile ,String Htel,String password,String Dob) throws SQLException {
 	        Connection connection = getConnection();
 
       
       // Prepared statement to insert data
-          String insertSql = " INSERT INTO members(fname,lname,email,address,mobile,home_tel,user_level,password) VALUES(?,?,?,?,?,?,?,?)   " ;
+          String insertSql = " INSERT INTO members(fname,lname,email,address,mobile,home_tel,user_level,password,dob) VALUES(?,?,?,?,?,?,?,?,?)   " ;
 
          
           try (PreparedStatement prep = connection.prepareStatement(insertSql)) {
@@ -26,6 +26,7 @@ public class RegisterUserDataStore {
                   prep.setString(6, Htel);
                   prep.setString(7,"normal");
                   prep.setString(8,password);
+                  prep.setString(9,Dob);
                 
                    prep.executeUpdate();
                    
