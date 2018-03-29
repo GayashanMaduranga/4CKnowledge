@@ -44,7 +44,7 @@
 		 
 		<div class="navbar d-block" >
 	  	<a href="" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/home.svg" alt="" width="40px" style="padding: 8px;"/>Home</a>
-		  <a href="" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/user.svg" alt="" width="35px" style="padding: 8px;" />Members</a>
+		  <a href="displaymembers" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/user.svg" alt="" width="35px" style="padding: 8px;" />Members</a>
 		  <a href="" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/book.svg" alt="" width="34px" style="padding: 8px;"/>Books</a>
 	    </div>
 		
@@ -55,8 +55,8 @@
 		  <div class="row">
 			  <div class="col-md-6"><h3 style="display: inline">Members</h3></div>
 			  <div class="col-md-6">
-			  <form class="form-inline my-2 my-lg-0 float-right">
-        <input class="form-control form" type="search" placeholder="Search" aria-label="Search">
+			  <form class="form-inline my-2 my-lg-0 float-right" action="search">
+        <input class="form-control form" type="search" placeholder="Search" aria-label="Search" name="search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       	</form>
 			  </div>
@@ -69,12 +69,15 @@
 		  <div class="row">
 		   
 			 <%
+			 ArrayList<Member> members = null;
+			 if(session.getAttribute("members")==null){
 			 	MemberDao dao = new MemberDao();
-			 	ArrayList<Member> members = (ArrayList<Member>)dao.getAllMembers();
-			 	
+			 	members = (ArrayList<Member>)dao.getAllMembers();
 			 	session.setAttribute("members", members);
-			 	
-			 	
+			 }else{
+				 members = (ArrayList<Member>)session.getAttribute("members");
+			 }
+			 	System.out.println(members.size());
 			 	for(int i=0;i<members.size();i++){
 			 		%>
 			 		
