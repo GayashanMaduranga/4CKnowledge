@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 			else {
 				out.print("<center><h2>Your Username or password invalid ,try again ! </h21></center>");
 
-			      request.getRequestDispatcher("Login.html").include(request, response);
+			      request.getRequestDispatcher("index.jsp").include(request, response);
 
 				
 			}

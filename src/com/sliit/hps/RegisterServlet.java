@@ -49,7 +49,7 @@ public class RegisterServlet extends HttpServlet {
 		String HomeTel=request.getParameter("Hometel");
 		String password=request.getParameter("password");
 		String Cpassword=request.getParameter("Cpassword");
-		//String DoB=request.getParameter("dob");
+		String DoB=request.getParameter("dob");
 		
 		HttpSession session=request.getSession();
 
@@ -79,7 +79,7 @@ public class RegisterServlet extends HttpServlet {
 						session.setAttribute("mobile",mobile);
 						session.setAttribute("Hometel",HomeTel);
 						session.setAttribute("password",password);
-						//session.setAttribute("dob",DoB);
+						session.setAttribute("dob",DoB);
 						session.setAttribute("Vcode",Vcode);
 					
 						
@@ -91,8 +91,9 @@ public class RegisterServlet extends HttpServlet {
 					
 				 }
 					else{
-					
-						request.getRequestDispatcher("Login.html").include(request, response);
+						out.print("<center><h1>Passwords are not matching!</h1></center>");
+
+						request.getRequestDispatcher("index.jsp").include(request, response);
 				        }
 				
 				
@@ -107,7 +108,7 @@ public class RegisterServlet extends HttpServlet {
 				
 				out.print("<center><h1>Already you have acoount</h1></center>");
 
-				request.getRequestDispatcher("Login.html").include(request, response);
+				request.getRequestDispatcher("index.jsp").include(request, response);
 			
 			}
 		}
