@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.mail.Address;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,11 +51,23 @@ public class RegisterVerifyServlet extends HttpServlet {
 			
 		
 		int Vcode = (Integer) session.getAttribute("Vcode");
-		
+		String Email=(String) session.getAttribute("Email");
+		String Fname=(String) session.getAttribute("Fname");
+		String Lname=(String) session.getAttribute("Lname");
+		String Caddress=(String) session.getAttribute("CAddress");
+		String mobile=(String) session.getAttribute("mobile");
+		String HomeTel=(String) session.getAttribute("Hometel");
+		String password=(String) session.getAttribute("password");
 		
 			
 			if(code==Vcode)
 		     	{
+				try {
+					RegisterUserDataStore.DataStore(Fname,Lname,Email,Caddress,mobile,HomeTel,password);
+					} catch (SQLException e) {
+					
+						e.printStackTrace();
+					}
 				session.setMaxInactiveInterval(60*5);
 				 request.getRequestDispatcher("interest.html").include(request, response);
 			    }
