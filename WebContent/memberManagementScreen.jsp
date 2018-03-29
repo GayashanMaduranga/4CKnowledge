@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@page import="com.sliit.entities.Member"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.sliit.datamodel.MemberDao"%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,7 +15,7 @@
   <body style="padding-top: 0px">
   <nav class="navbar navbar-expand-lg navbar-dark" style="background: #005670; border-bottom: 1px solid white"> 
 	  <a class="navbar-brand" href="#">
-		  <img src="/images/4C Knowledge-logo-200x200.png" width="55" height="46" style="padding: 5px" alt=""/>4CKnowledge</a>
+		  <img src="images/4C Knowledge-logo-200x200.png" width="55" height="46" style="padding: 5px" alt=""/>4CKnowledge</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
       <ul class="navbar-nav mr-auto" id="hideForLarge">
@@ -64,17 +67,28 @@
 		<div class="container">
 		  
 		  <div class="row">
-		    <section class="col-md-5" style="background: #FFFFFF;margin: 20px;padding: 10px;">
+		   
+			 <%
+			 	MemberDao dao = new MemberDao();
+			 	ArrayList<Member> members = (ArrayList<Member>)dao.getAllMembers();
+			 	
+			 	session.setAttribute("members", members);
+			 	
+			 	
+			 	for(int i=0;i<members.size();i++){
+			 		%>
+			 		
+			 <section class="col-md-5" style="background: #FFFFFF;margin: 20px;padding: 10px;">
 			  <div class="d-block clearfix">
 				  
-					<a href="" class="float-right" ><img src="images/trash-alt.svg" alt="" width="35px" style="padding: 8px;"/></a>
+				<a href="removemember?id=<%=String.valueOf(i) %>" class="float-right" ><img src="images/trash-alt.svg" alt="" width="35px" style="padding: 8px;"/></a>
 				<a href="" class="float-right" ><img src="images/edit.svg" alt="" width="40px" style="padding: 8px;"/></a>
-				</div>
+			  </div>
 				
 				<div class="d-block" style="border-bottom: : 1px solid black">
-					<h6>James william</h6>
+					<h6><%=members.get(i).getFullName() %></h6>
 					<label>Email :</label>
-					<label>James@mail.com</label>
+					<label><%=members.get(i).getEmail() %></label>
 				</div>
 				<div class="text-center">
 				<button class="btn btn-light " style="border: 1px solid #888585">View Profile</button>
@@ -82,68 +96,22 @@
 				</div>
 				
 			 </section>
-		    <section class="col-md-5" style="background: #FFFFFF;margin: 20px;padding: 10px;">
-			  <div class="d-block clearfix">
-				  
-					<a href="" class="float-right" ><img src="images/trash-alt.svg" alt="" width="35px" style="padding: 8px;"/></a>
-				<a href="" class="float-right" ><img src="images/edit.svg" alt="" width="40px" style="padding: 8px;"/></a>
-				</div>
-				
-				<div class="d-block" style="border-bottom: : 1px solid black">
-					<h6>James william</h6>
-					<label>Email :</label>
-					<label>James@mail.com</label>
-				</div>
-				<div class="text-center">
-				<button class="btn btn-light " style="border: 1px solid #888585">View Profile</button>
-				
-				</div>
-				
-			 </section>
-			  
-			   <section class="col-md-5" style="background: #FFFFFF;margin: 20px;padding: 10px;">
-			  <div class="d-block clearfix">
-				  
-					<a href="" class="float-right" ><img src="images/trash-alt.svg" alt="" width="35px" style="padding: 8px;"/></a>
-				<a href="" class="float-right" ><img src="images/edit.svg" alt="" width="40px" style="padding: 8px;"/></a>
-				</div>
-				
-				<div class="d-block" style="border-bottom: : 1px solid black">
-					<h6>James william</h6>
-					<label>Email :</label>
-					<label>James@mail.com</label>
-				</div>
-				<div class="text-center">
-				<button class="btn btn-light " style="border: 1px solid #888585">View Profile</button>
-				
-				</div>
-				
-			 </section>
-		    <section class="col-md-5" style="background: #FFFFFF;margin: 20px;padding: 10px;">
-			  <div class="d-block clearfix">
-				  
-					<a href="" class="float-right" ><img src="images/trash-alt.svg" alt="" width="35px" style="padding: 8px;"/></a>
-				<a href="" class="float-right" ><img src="images/edit.svg" alt="" width="40px" style="padding: 8px;"/></a>
-				</div>
-				
-				<div class="d-block" style="border-bottom: : 1px solid black">
-					<h6>James william</h6>
-					<label>Email :</label>
-					<label>James@mail.com</label>
-				</div>
-				<div class="text-center">
-				<button class="btn btn-light " style="border: 1px solid #888585">View Profile</button>
-				
-				</div>
-				
-			 </section>
+			 		
+			 	<%	
+			 		
+			 		
+			 	}
+			 
+			 %>
+		    
+
 	      </div>
         </div>
       </section>
     </article>
   </main>
   <footer class="d-block clearfix text-center bg-dark text-white">
-	  gayashan kariyawasam copyright
+	  Copyright &copy; Sri Lanka Institute of Information Technology.All Rights Reserved
 	  
 	  </footer>
 <!-- body code goes here -->
