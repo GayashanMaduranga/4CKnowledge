@@ -22,7 +22,7 @@
         <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
         <li class="nav-item"> <a class="nav-link" href="#">Members</a> </li>
         <li class="nav-item"> <a class="nav-link" href="#">My Profile</a> </li>
-         <li class="nav-item"> <a class="nav-link" href="#">Logout</a> </li>
+         <li class="nav-item"> <a class="nav-link" href="logout">Logout</a> </li>
        
       
       </ul>
@@ -32,7 +32,7 @@
 			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown2"> <a class="dropdown-item" href="#">My Profile</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Logout</a> </div>
+            <a class="dropdown-item" href="logout">Logout</a> </div>
         </li>
 		
 		</ul>
