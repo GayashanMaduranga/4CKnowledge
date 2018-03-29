@@ -58,17 +58,18 @@ public class RegisterVerifyServlet extends HttpServlet {
 		String mobile=(String) session.getAttribute("mobile");
 		String HomeTel=(String) session.getAttribute("Hometel");
 		String password=(String) session.getAttribute("password");
+		String Dob=(String) session.getAttribute("dob");
 		
 			
 			if(code==Vcode)
 		     	{
 				try {
-					RegisterUserDataStore.DataStore(Fname,Lname,Email,Caddress,mobile,HomeTel,password);
+					RegisterUserDataStore.DataStore(Fname,Lname,Email,Caddress,mobile,HomeTel,password,Dob);
 					} catch (SQLException e) {
 					
 						e.printStackTrace();
 					}
-				session.setMaxInactiveInterval(60*5);
+				session.setMaxInactiveInterval(60*30);
 				 request.getRequestDispatcher("interest.html").include(request, response);
 			    }
 			else {
@@ -85,7 +86,7 @@ public class RegisterVerifyServlet extends HttpServlet {
 			
 			out.print("<center><h1>Your session has timed out ,try again ! </h1></center>");
 
-			request.getRequestDispatcher("Login.html").include(request, response);
+			request.getRequestDispatcher("index.jsp").include(request, response);
 		}
 		
 	}
