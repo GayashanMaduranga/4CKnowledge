@@ -196,6 +196,5 @@
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap-4.0.0.js"></script>
-</body><body>
-  </body>
+</body>
 </html>

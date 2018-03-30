@@ -47,7 +47,7 @@ public class UpdateMemberServlet extends HttpServlet {
 		MemberDao dao = new MemberDao();
 		dao.updateMember(m);
 		
-		
+		try {
 		String[] interest;
 		interest = request.getParameterValues("interest");
 		
@@ -64,9 +64,15 @@ public class UpdateMemberServlet extends HttpServlet {
 		InterestsDao iDao = new InterestsDao();
 		iDao.updateInterests(interestList);
 		
+		}catch(Exception e) {
+			
+			response.getWriter().println("<script>alert(\"Select at least one interest\");</script>");
+			
+		}
+		
 		System.out.println("Updated");
 		
-		request.getRequestDispatcher("/memberDetails.jsp").forward(request, response);
+		request.getRequestDispatcher("/memberDetails.jsp").include(request, response);
 	}
 
 }
