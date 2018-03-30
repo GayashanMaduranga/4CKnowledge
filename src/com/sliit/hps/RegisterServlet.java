@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import com.sliit.encription.CryptWithMD5;
 
 import net.code.kr.CheckEmail;
-import net.code.kr.Resetpassword;
 import net.code.krRegister.RegisterEmailVerificationInteraface;
 
 
@@ -87,7 +86,7 @@ public class RegisterServlet extends HttpServlet {
 						session.setAttribute("Vcode",Vcode);
 					
 						
-						session.setMaxInactiveInterval(60);
+						session.setMaxInactiveInterval(60*3);
 
 						request.getRequestDispatcher("Register_email_verify.jsp").include(request, response);
 

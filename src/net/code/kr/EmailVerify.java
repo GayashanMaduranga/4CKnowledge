@@ -53,12 +53,12 @@ public class EmailVerify extends HttpServlet {
 			
 			if(code==Vcode)
 		     	{
-				session.setMaxInactiveInterval(60);
+				session.setMaxInactiveInterval(60*3);
 				 request.getRequestDispatcher("recoveryPassword.jsp").include(request, response);
 			    }
 			else {
 			      request.getRequestDispatcher("email_verify.jsp").include(request, response);
-			      session.setMaxInactiveInterval(20);
+			      session.setMaxInactiveInterval(60);
 
 				}
 			}
