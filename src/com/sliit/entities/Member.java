@@ -8,6 +8,10 @@ public class Member implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	public static int REGULAR_MEMBER = 0;
+	public static int COMMUNITY_ADMIN = 1;
+	public static int OWNER = 2;
+	
 	private int id;
 	
 	private String email;

@@ -94,20 +94,18 @@
 					<label><%=members.get(i).getEmail() %></label>
 				</div>
 				<div class="text-center">
-				<button class="btn btn-light " style="border: 1px solid #888585">View Profile</button>
+				<button class="btn btn-light " style="border: 1px solid #888585"onclick="window.location.href='displaymemberdetails?id=<%=String.valueOf(i) %>'">View Profile</button>
 				
 				</div>
 				
 			 </section>
 			 		
 			 	<%	
-			 		
-			 		
+	 		
 			 	}
 			 
 			 %>
 		    
-
 	      </div>
         </div>
       </section>

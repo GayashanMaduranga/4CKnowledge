@@ -1,7 +1,6 @@
 package com.sliit.servlet;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -15,16 +14,16 @@ import com.sliit.datamodel.MemberDao;
 import com.sliit.entities.Member;
 
 /**
- * Servlet implementation class removeMember
+ * Servlet implementation class DisplayAllMembers
  */
-@WebServlet("/removemember")
-public class removeMember extends HttpServlet implements Serializable{
+@WebServlet("/displaymembers")
+public class DisplayAllMembersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public removeMember() {
+    public DisplayAllMembersServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,24 +33,19 @@ public class removeMember extends HttpServlet implements Serializable{
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		MemberDao dao = new MemberDao();
-		
-		int id = Integer.parseInt(request.getParameter("id"));
-		
-		Member member = ((ArrayList<Member>)request.getSession().getAttribute("members")).get(id);
-		
-		dao.removeMember(member);
-		
+	
 		ArrayList<Member> members = null;
 		HttpSession session = request.getSession();
 		members = (ArrayList<Member>)dao.getAllMembers();
 	 	session.setAttribute("members", members);
 		
-		response.sendRedirect("memberManagementScreen.jsp");
-		
+	 	request.getRequestDispatcher("memberManagementScreen.jsp").forward(request, response);
 		
 	}
 
+	
 	
 
 }

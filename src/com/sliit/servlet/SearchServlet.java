@@ -14,38 +14,32 @@ import com.sliit.datamodel.MemberDao;
 import com.sliit.entities.Member;
 
 /**
- * Servlet implementation class DisplayAllMembers
+ * Servlet implementation class Search
  */
-@WebServlet("/displaymembers")
-public class DisplayAllMembers extends HttpServlet {
+@WebServlet("/search")
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DisplayAllMembers() {
+    public SearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+	
 		MemberDao dao = new MemberDao();
-	
-		ArrayList<Member> members = null;
+		String search = request.getParameter("search");
 		HttpSession session = request.getSession();
-		members = (ArrayList<Member>)dao.getAllMembers();
-	 	session.setAttribute("members", members);
 		
-	 	request.getRequestDispatcher("memberManagementScreen.jsp").forward(request, response);
 		
+		ArrayList<Member> members = (ArrayList<Member>)dao.searchMembers(search);
+		
+		session.setAttribute("members", members);
+		
+		request.getRequestDispatcher("memberManagementScreen.jsp").forward(request, response);
 	}
-
-	
-	
 
 }
