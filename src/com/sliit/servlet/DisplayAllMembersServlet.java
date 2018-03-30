@@ -17,13 +17,13 @@ import com.sliit.entities.Member;
  * Servlet implementation class DisplayAllMembers
  */
 @WebServlet("/displaymembers")
-public class DisplayAllMembers extends HttpServlet {
+public class DisplayAllMembersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DisplayAllMembers() {
+    public DisplayAllMembersServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

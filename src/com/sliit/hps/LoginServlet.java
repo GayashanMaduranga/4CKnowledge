@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sliit.encription.CryptWithMD5;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -41,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 		
 			
 		String Email=request.getParameter("Email");
-		String password=request.getParameter("pwd");
+		String password=CryptWithMD5.cryptWithMD5(request.getParameter("pwd"));
 		String DbPassword = null;
 		try {
 			DbPassword = GetUserPassword.getUserPassword(Email);
@@ -52,7 +54,8 @@ public class LoginServlet extends HttpServlet {
 			if(DbPassword.equals(password))
 		     	{
 				session.setMaxInactiveInterval(30*60);
-				 request.getRequestDispatcher("home.html").include(request, response);
+				// request.getRequestDispatcher("home.html").include(request, response);
+				 response.sendRedirect("memberManagementScreen.jsp");
 			    }
 			else {
 				out.print("<center><h2>Your Username or password invalid ,try again ! </h2></center>");

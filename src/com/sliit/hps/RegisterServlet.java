@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sliit.encription.CryptWithMD5;
+
 import net.code.kr.CheckEmail;
 import net.code.kr.Resetpassword;
 import net.code.krRegister.RegisterEmailVerificationInteraface;
@@ -72,6 +74,8 @@ public class RegisterServlet extends HttpServlet {
 						e.printStackTrace();
 					}
 					finally {
+						
+						password = CryptWithMD5.cryptWithMD5(password);
 						session.setAttribute("Email",Email);
 						session.setAttribute("Fname",Fname);
 						session.setAttribute("Lname",Lname);

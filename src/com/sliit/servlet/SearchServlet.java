@@ -17,13 +17,13 @@ import com.sliit.entities.Member;
  * Servlet implementation class Search
  */
 @WebServlet("/search")
-public class Search extends HttpServlet {
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Search() {
+    public SearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

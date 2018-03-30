@@ -92,17 +92,26 @@ public List<Member> getAllMembers() {
 public void updateMember(Member member) {
 		
 		Connection conn = DBConnection.getConnectionToDatabase();
-		String query = "update members"
-				+ " set fname = ?,"
-				+ "lname = ?,"
-				+ "email = ?,"
-				+ "address = ?,"
-				+ "mobile = ?,"
-				+ "home_tel = ?,"
-				+ "dob = ?,"
-				+ "user_level = ?,"
-				+ "password = ?"
-				+ "where mid = ?";
+		String query = "update members "
+				+ " set fname = ?, "
+				+ "lname = ?, "
+				+ "email = ?, "
+				+ "address = ?, "
+				+ "mobile = ?, "
+				+ "home_tel = ?, "
+				+ "dob = ?, "
+				+ "user_level = ? "
+				+ "where mid = ? ";
+		
+
+		
+//		String query = "update 4CKnowledge.members"
+//				+ " set fname = ?,"
+//				+ "lname = ?,"
+//				+ "email = ?,"
+//				+ "mobile = ?,"
+//				+ "home_tel = ?"
+//				+ "where mid = ?;";
 	
 		PreparedStatement stmt ;
 		try {
@@ -116,8 +125,7 @@ public void updateMember(Member member) {
 			stmt.setString(6, member.getHomeTel());
 			stmt.setDate(7, member.getDob());
 			stmt.setInt(8, member.getUserLevel());
-			stmt.setString(9, member.getPassword());
-			stmt.setInt(10, member.getId());
+			stmt.setInt(9, member.getId());
 			stmt.executeUpdate();
 			
 			
@@ -186,13 +194,13 @@ public void insertMember(Member member) {
 			member.setEmail(rs.getString("email"));
 			member.setAddress(rs.getString("address"));
 			member.setMobile(rs.getString("mobile"));
-			member.setMobile(rs.getString("home_tel"));
+			member.setHomeTel(rs.getString("home_tel"));
 			member.setDob(rs.getDate("dob"));
 			member.setUserLevel(rs.getInt("user_level"));
 			member.setPassword(rs.getString("password"));	
 			member.setVerificationCode(rs.getString("verification_code"));
 			
-			
+			System.out.println(member.getHomeTel());
 			
 				members.add(member);
 			}
