@@ -7,7 +7,7 @@
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title>4CKnowledge</title>
     <!-- Bootstrap -->
 	<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
 	<link href="css/navStyles.css" rel="stylesheet" type="text/css">
@@ -20,8 +20,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
       <ul class="navbar-nav mr-auto" id="hideForLarge">
         <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">Members</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">My Profile</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="displaymembers">Members</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="profiledetails">My Profile</a> </li>
          <li class="nav-item"> <a class="nav-link" href="logout">Logout</a> </li>
        
       
@@ -29,8 +29,8 @@
       
 		<ul  class="navbar-nav">
 		<li class="nav-item dropdown "> 
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown2"> <a class="dropdown-item" href="#">My Profile</a>
+			<a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${user.email} </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown2"> <a class="dropdown-item" href="profiledetails">My Profile</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="logout">Logout</a> </div>
         </li>

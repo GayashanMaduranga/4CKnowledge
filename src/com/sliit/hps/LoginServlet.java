@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sliit.datamodel.MemberDao;
 import com.sliit.encription.CryptWithMD5;
+import com.sliit.entities.Member;
 
 /**
  * Servlet implementation class LoginServlet
@@ -55,7 +57,20 @@ public class LoginServlet extends HttpServlet {
 		     	{
 				session.setMaxInactiveInterval(30*60);
 				// request.getRequestDispatcher("home.html").include(request, response);
+				MemberDao dao = new MemberDao();
+				
+				Member user = dao.getMembersByEmail(Email);
+				if(user == null) {
+					System.out.println("###################################");
+					System.out.println("###################################");
+					System.out.println("###################################");
+					System.out.println("###################################");
+				}
+				
+				session.setAttribute("user", user);
 				 response.sendRedirect("memberManagementScreen.jsp");
+				 
+				 
 			    }
 			else {
 				out.print("<center><h2>Your Username or password invalid ,try again ! </h2></center>");

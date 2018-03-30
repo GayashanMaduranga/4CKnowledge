@@ -65,7 +65,55 @@ public List<Member> getAllMembers() {
 		
 	}
 
+public Member getMembersByEmail(String email) {
+	
+	Member member = null;
+	
+	Connection conn = DBConnection.getConnectionToDatabase();
+	String query = "select * from 4CKnowledge.members where email = '"+email+"'";
 
+	Statement stmt ;
+	try {
+		
+		stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(query);
+		
+	
+	
+	
+
+		
+		while(rs.next()) {
+		member = new Member();
+		member.setId(rs.getInt("mid"));
+		member.setFname(rs.getString("fname"));
+		member.setLname(rs.getString("lname"));
+		member.setEmail(rs.getString("email"));
+		member.setAddress(rs.getString("address"));
+		member.setMobile(rs.getString("mobile"));
+		member.setHomeTel(rs.getString("home_tel"));
+		member.setDob(rs.getDate("dob"));
+		member.setUserLevel(rs.getInt("user_level"));
+		member.setPassword(rs.getString("password"));	
+		member.setVerificationCode(rs.getString("verification_code"));
+		
+		
+			
+		}
+		conn.close();
+		
+	} catch (SQLException e) {
+		
+		e.printStackTrace();
+	}
+	
+	
+	
+	
+	return member;
+	
+	
+}
 	public void removeMember(Member member) {
 		
 		Connection conn = DBConnection.getConnectionToDatabase();

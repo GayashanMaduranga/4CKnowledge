@@ -50,73 +50,51 @@
 		
 		</nav>
 		 <%
-		
-              	Member m = (Member)session.getAttribute("selected_member");
+              
+              	Member m = (Member)session.getAttribute("user");
               InterestsDao dao = new InterestsDao();
       			Interests interests =  dao.getMemberInterest(m.getId());
-      			System.out.println(m.getUserLevel());
+      		
               
               %>
       <section class="col-lg-10" id="content" style="background: #EFEFEF">
         <div class="container-fluid bg-white p-2">
 			
-          <form class="text-center p-2" action="updatemember" method="post">
+          <form class="text-center p-2" action="updateprofile" method="post">
 			  <h5 class="modal-header">Member Details</h5>
 			  
               <div class="form-inline m-3">
               <label for="fnameInput" class="col-4 ">First Name</label>
-              <input type="text" class="form-control border-success col-sm-auto col-md-8" id="fnameInput" name="fname" placeholder="Enter First Name" width="100%" value="${selected_member.fname}">
+              <input type="text" class="form-control border-success col-sm-auto col-md-8" id="fnameInput" name="fname" placeholder="Enter First Name" width="100%" value="${user.fname}">
               </div>
 			  <div class="form-inline m-3">
               <label for="lnameInput" class="col-4 ">Last Name</label>
-              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="lnameInput" name="lname" placeholder="Enter Last Name" value="${selected_member.lname}">
+              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="lnameInput" name="lname" placeholder="Enter Last Name" value="${user.lname}">
               </div>
           
 			  <div class="form-inline m-3">
               <label for="emailInput" class="col-4 ">Email</label>
-               <input type="email" class="form-control col-sm-auto col-md-8 border-success" id="emailInput" name="email" placeholder="Enter Email" value="${selected_member.email}">
+               <input type="email" class="form-control col-sm-auto col-md-8 border-success" id="emailInput" name="email" placeholder="Enter Email" value="${user.email}">
               </div>
 			  
 			  <div class="form-inline m-3">
               <label for="addressInput" class="col-4 ">Address</label>
-              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="addressInput" name="address" placeholder="Enter Address" value="${selected_member.address}">
+              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="addressInput" name="address" placeholder="Enter Address" value="${user.address}">
               </div>
 			  
 			  <div class="form-inline m-3">
               <label for="mobileInput" class="col-4 ">Mobile</label>
-              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="mobileInput" name="mobile" placeholder="Enter Mobile No." value="${selected_member.mobile}">
+              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="mobileInput" name="mobile" placeholder="Enter Mobile No." value="${user.mobile}">
               </div>
 			  <div class="form-inline m-3">
               <label for="homeTelInput" class="col-4 ">Home Tel.</label>
-              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="homeTelInput" name="homeTel" placeholder="Enter Home Tel." value="${selected_member.homeTel}">
+              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="homeTelInput" name="homeTel" placeholder="Enter Home Tel." value="${user.homeTel}">
               </div>
 			  <div class="form-inline m-3">
               <label for="dobInput" class="col-4 ">Date Of Birth.</label>
-              <input type="date" class="form-control col-sm-auto col-md-8 border-success" id="dobInput" name="dob" value="${selected_member.dob}">
+              <input type="date" class="form-control col-sm-auto col-md-8 border-success" id="dobInput" name="dob" value="${user.dob}">
               </div>
-			  
-			  <div class="form-inline m-3">
-              <label for="userTypeInput" class="col-4 ">User Type.</label>
-             <select class="form-control form-control col-sm-auto col-md-8 border-success" name="user_type">
-				 <option VALUE=0 <%if(m.getUserLevel()==Member.REGULAR_MEMBER){
-					 out.print("selected");
-				 }
-					 %>>Member</option>
-				
-				 <option VALUE=1 <%if(m.getUserLevel()==Member.COMMUNITY_ADMIN){
-					 out.print("selected");
-				 }
-					 %>>Community Admit</option>
-				 <option VALUE=2 <%if(m.getUserLevel()==Member.OWNER){
-					 out.print("selected");
-				 }
-					 %>>Owner</option>
-			    </select>
-              </div>
-              
-              
-             
-		   
+			    
 			  <section class="mb-5">
 				   <h6 class="modal-header mb-5">Member Interests</h6>
 			    <div class="container-fluid">
