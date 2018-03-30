@@ -57,9 +57,9 @@ public class ResetpassServlet extends HttpServlet {
 			
 			}
 			else{
-				
+				  out.print("<center><h1>Passwords are not matching!</h1></center>");
 			      request.getRequestDispatcher("recoveryPassword.jsp").include(request, response);
-			      session.setMaxInactiveInterval(60);
+				  session.setMaxInactiveInterval(60);
 
 				
 			     }
