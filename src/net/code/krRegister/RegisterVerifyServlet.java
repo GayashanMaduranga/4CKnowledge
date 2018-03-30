@@ -70,7 +70,7 @@ public class RegisterVerifyServlet extends HttpServlet {
 						e.printStackTrace();
 					}
 				session.setMaxInactiveInterval(60*30);
-				 request.getRequestDispatcher("interest.html").include(request, response);
+				 request.getRequestDispatcher("interest.jsp").include(request, response);
 			    }
 			else {
 			      request.getRequestDispatcher("Register_email_verify.jsp").include(request, response);

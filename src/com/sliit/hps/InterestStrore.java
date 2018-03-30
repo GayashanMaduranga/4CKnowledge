@@ -1,6 +1,6 @@
 package com.sliit.hps;
 
-import static net.code.kr.DB.getConnection;
+import static net.code.kr.DBConnection.getConnectionToDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class InterestStrore {
 	
 	 public static  void DataStore(String Email,String interest) throws SQLException {
-	        Connection connection = getConnection();
+	        Connection connection = getConnectionToDatabase();
 
    
    // Prepared statement to insert data
@@ -38,10 +38,6 @@ public class InterestStrore {
 
 
 	 
-	 public static void main(String[] args) throws SQLException {
-		 DataStore("krishan.kr1996@gmail.com","1");
-		 DataStore("krishan.kr1996@gmail.com","3");
-		 
-	 }
+	 
 	 
 }

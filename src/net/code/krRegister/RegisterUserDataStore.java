@@ -1,6 +1,6 @@
 package net.code.krRegister;
 
-import static net.code.kr.DB.getConnection;
+import static net.code.kr.DBConnection.getConnectionToDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class RegisterUserDataStore {
 	
 	 public static  void DataStore(String Fname,String Lanme,String email,String add ,String mobile ,String Htel,String password,String Dob) throws SQLException {
-	        Connection connection = getConnection();
+	        Connection connection = getConnectionToDatabase();
 
       
       // Prepared statement to insert data
@@ -24,7 +24,7 @@ public class RegisterUserDataStore {
                   prep.setString(4,add);
                   prep.setString(5, mobile);
                   prep.setString(6, Htel);
-                  prep.setString(7,"normal");
+                  prep.setString(7,"1");
                   prep.setString(8,password);
                   prep.setString(9,Dob);
                 

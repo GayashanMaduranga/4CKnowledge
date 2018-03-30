@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class DB {
+public class DBConnection {
     
 	   
-    public static Connection getConnection() throws SQLException
+    public static Connection getConnectionToDatabase() throws SQLException
    {
      Connection con = null;
      
@@ -28,7 +28,7 @@ public class DB {
    
       public static void main(String[] args) throws SQLException {
     
-    	 if( getConnection()!=null){
+    	 if( getConnectionToDatabase()!=null){
     		 System.out.println("OK");
     	 }
  

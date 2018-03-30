@@ -40,10 +40,7 @@ public class EmailGeneratorInterface {
 	static Session getMailSession;
 	static MimeMessage generateMailMessage;
  
-	public static void main(String args[]) throws AddressException, MessagingException {
-    //generateAndSendEmail("krishan@ovi.com");
-		//System.out.println("\n\n ===> Your Java Program has just sent an Email successfully. Check your email..");
-	}
+	
         
         
        public static String designMail(String e) throws SQLException
@@ -53,9 +50,9 @@ public class EmailGeneratorInterface {
    		int randomInt = randomGen.nextInt(9000)+1000;
    		StoreVerification.VerificationCodeStore(randomInt,e);
    		
-    	   String EMAIL="<center><h1><u>4C Knowledge</u></h1></center><table border=5 width=25% height=100% align=\"center\"> <tr><th>Verification Code</th></tr>" ;
+    	   String EMAIL="<center><h1><u>4C Knowledge</u></h1></center><table border=5 width=200px height=50px align=center> <tr><th>Verification Code</th></tr>" ;
 
-           EMAIL +="<tr> <td><center>" + randomInt + "</center></td>  </tr> </table> ";
+           EMAIL +="<tr> <td><center><h2>" + randomInt + "</h2></center></td>  </tr> </table> ";
     	   
     	   return EMAIL;
     	   
