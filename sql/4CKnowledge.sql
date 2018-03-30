@@ -7,6 +7,16 @@
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
+CREATE DATABASE  IF NOT EXISTS `4CKnowledge` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `4CKnowledge`;
+
+DROP TABLE IF EXISTS `memberInterests`;
+
+DROP TABLE IF EXISTS `members`;
+
+DROP TABLE IF EXISTS `Interests`;
+
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
