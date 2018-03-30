@@ -1,6 +1,6 @@
 package net.code.kr;
 
-import static net.code.kr.DB.getConnection;
+import static net.code.kr.DBConnection.getConnectionToDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class Resetpassword {
 	 public static  void Resetpwd(String pass,String email) throws SQLException {
-	        Connection connection = getConnection();
+	        Connection connection = getConnectionToDatabase();
 
       
       // Prepared statement to insert data

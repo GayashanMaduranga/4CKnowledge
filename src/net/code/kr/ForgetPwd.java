@@ -58,7 +58,7 @@ public class ForgetPwd extends HttpServlet {
 
 
 
-				request.getRequestDispatcher("email_verify.html").include(request, response);
+				request.getRequestDispatcher("email_verify.jsp").include(request, response);
 
 			      }
 			}
@@ -66,7 +66,7 @@ public class ForgetPwd extends HttpServlet {
 				
 				
 			
-				request.getRequestDispatcher("forget_password.html").include(request, response);
+				request.getRequestDispatcher("forget_password.jsp").include(request, response);
 				out.print("<center><h3>Sorry, username not founded</h3></center>");
 			}
 		}

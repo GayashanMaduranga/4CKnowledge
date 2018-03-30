@@ -1,7 +1,7 @@
 package net.code.kr;
 
 
-import static net.code.kr.DB.getConnection;
+import static net.code.kr.DBConnection.getConnectionToDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ public class CheckEmail {
 	
 
     public static int FindUser(String email) throws SQLException{
-        Connection connection = getConnection();
+        Connection connection = getConnectionToDatabase();
             
             String selectSql = "SELECT  STRCMP(m.email, ?)" + "FROM members m " +"Where m.email LIKE ?"  ;
 
