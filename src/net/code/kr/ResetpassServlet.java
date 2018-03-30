@@ -58,7 +58,7 @@ public class ResetpassServlet extends HttpServlet {
 			}
 			else{
 				
-			      request.getRequestDispatcher("recoveryPassword.html").include(request, response);
+			      request.getRequestDispatcher("recoveryPassword.jsp").include(request, response);
 			      session.setMaxInactiveInterval(60);
 
 				
@@ -69,7 +69,7 @@ public class ResetpassServlet extends HttpServlet {
 		
 		else {
 			
-			request.getRequestDispatcher("forget_password.html").include(request, response);
+			request.getRequestDispatcher("forget_password.jsp").include(request, response);
 			out.print("<center><h1>Your session has timed out ,try again ! </h1></center>");
 			
 	     	}
@@ -77,7 +77,7 @@ public class ResetpassServlet extends HttpServlet {
       }
 		catch(Exception e){
 			
-			request.getRequestDispatcher("forget_password.html").include(request, response);
+			request.getRequestDispatcher("forget_password.jsp").include(request, response);
 		}
 		
 	}

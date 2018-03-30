@@ -1,6 +1,6 @@
 package com.sliit.hps;
 
-import static net.code.kr.DB.getConnection;
+import static net.code.kr.DBConnection.getConnectionToDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,7 @@ public class GetUserPassword {
 
 	
 	public static String getUserPassword(String email) throws SQLException {
-        Connection connection = getConnection();
+        Connection connection = getConnectionToDatabase();
             
             String selectSql = "SELECT password " + "FROM  members " +" where email = ? "  ;
             String pass = null;

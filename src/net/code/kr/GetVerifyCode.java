@@ -1,6 +1,6 @@
 package net.code.kr;
 
-import static net.code.kr.DB.getConnection;
+import static net.code.kr.DBConnection.getConnectionToDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class GetVerifyCode {
 	
 	 public static int getUserVcode(String email) throws SQLException{
-	        Connection connection = getConnection();
+	        Connection connection = getConnectionToDatabase();
 	            
 	            String selectSql = "SELECT verification_code " + "FROM  members " +" where email = ? "  ;
 

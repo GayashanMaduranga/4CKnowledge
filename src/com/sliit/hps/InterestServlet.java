@@ -63,7 +63,7 @@ public class InterestServlet extends HttpServlet {
 		       else {
 		    	    out.print("<center><h1>You should select at least one interest </h1></center>");
 
-					request.getRequestDispatcher("interest.html").include(request, response);
+					request.getRequestDispatcher("interest.jsp").include(request, response);
 		            }
 		   
 		}

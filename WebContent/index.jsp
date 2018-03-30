@@ -9,22 +9,35 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/jquery.min.js"> </script>
   <script src="js/bootstrap.min.js"> </script>
-  
+  <link href="css/navStyles.css" rel="stylesheet" type="text/css">
 
 <style type="text/css">
 	
 	
-	#loginForm, #regForm{
-		padding:10px;
-		margin:10px 0;
+	
+	
+	
+	#logo{
+		font-size: 40px;
+		
+	}
+	 #regForm{
+		/*
+		margin-top:0% ;
+		margin-left:55% ;*/
+		position:relative;
 	}
 	
 	#loginForm{
+	
+	/*	margin-top:-30px;
+		margin-left:40%;
+		position:initial;*/
 		color:#fff;	
 	}
 	
 	#regForm{
-		width:500px;
+		width:480px;
 		background-color: rgba(255, 255, 255, 0.61);
 		border-radius: 8px;
 		padding: 10px 40px 40px 40px;
@@ -54,7 +67,33 @@
 		text-align:center;
 		color:#fff;
 	}
+	
+	
+	table, th, td {
+    border: 0px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 3px;
+}
+
+#mainTable
+	table, th, td {
+	 
+    border: 0px solid black;
+    border-collapse: collapse;
+    
+}
+#mainTable  {
+	padding: 0px;
+    width: 10%;
+    margin-top:0% ;
+    margin-left:60% ;
+    position:relative; 
+    
+}
 </style>
+
 
 
 
@@ -63,39 +102,76 @@
 
 <body>
 
-
-<header class="row">
-<div class="container col-sm-6">
-	<h1 id ="heading"> </h1>
+<div class="navbar-brand" >
+	
+ <a id="logo" href="index.jsp" style=" text-decoration:none; color:white ;'" >
+		  <img src="images/4C Knowledge-logo-200x200.png" width="100" height="80" style="padding: 5px;" alt=""/>4CKnowledge</a>
 </div>
+<table id="mainTable">
+<tr>
+<td>
+<header class="row">
 
-<div id="loginForm" class="container col-sm-6">
+
+<div  id="loginForm" class="container col-sm-6">
+
   <form class="form-inline" action="loginServlet" method="post">
-    <div class="form-group">
-      <label for="email">Email:</label>
+    <table align="left" >
+    <tr>
+    <td>
+   <label for="email">Email:</label>
+      </td>
+      <td>
+        <label for="pwd">Password:</label>
+       </td>
+     </tr>
+     <tr>
+     <td>
       <input type="email" class="form-control" id="Email" placeholder="Enter email" name="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
+    </td>
+    
+  	<td>
+    
+    
       <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-    </div>
+  
+    </td>
+    <td>
+    <div class="form-group">
     <button type="submit" class="btn btn-default">Login</button>
-	<br>
-    <div class="checkbox">
-      <label><input type="checkbox" name="remember"> Remember me </label>
-	  <a href="forget_password.html">Forgot Password? </a>
+	 </div>
+	 </td></tr>
+	 <tr><td colspan=2>
+    <div class="form-group">
+      <label>  <a href="forget_password.jsp"  style="color:black;">Forgot Password? </a></label>
+	 
     </div>
+    </td>
+    </tr>
+    </table>
   </form>
 </div>
 </header>
+</td>
+</tr>
+
+<tr>
+<td>
 
 <section id = "main" class="row">
 <div class="container col-sm-7">
 
 </div>
+
+<table align=center >
+    <tr>
+    <td>
 <div id="regForm" class="container col-sm-5">
   <h2>Member Registration</h2>
+  
+    
   <form action="registerServlet" method="post">
+  
    
     <div class="form-group">
       <label for="memName">First Name:</label>
@@ -111,10 +187,10 @@
      <div class="form-group">
     <label for="Email">Email address:</label> 
     <input type="text" class="form-control" id="Email" placeholder="Enter Email Address" name="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  required> 
-
+	</div>
       <div class="form-group">
       <label for="shopName">Current Address:</label>
-      <input type="text" class="form-control" id="CAddress" placeholder="Enter Current Address" name="CAddress" pattern="[a-z0-9._%+-/]+"  required  title="" >
+      <input type="text" class="form-control" id="CAddress" placeholder="Enter Current Address" name="CAddress"   required  title="Text and numbers" >
     </div>
 
     
@@ -147,9 +223,19 @@
     </div>
 
     <button type="submit" class="btn btn-default">Become a Member!</button>
+     
   </form>
+  
+  
 </div>
+</td>
+    </tr>
+    </table>
+
 </section>
 
+</td>
+</tr>
+</table>
 </body>
 </html>

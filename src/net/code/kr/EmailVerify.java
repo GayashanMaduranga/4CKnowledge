@@ -54,10 +54,10 @@ public class EmailVerify extends HttpServlet {
 			if(code==Vcode)
 		     	{
 				session.setMaxInactiveInterval(60);
-				 request.getRequestDispatcher("recoveryPassword.html").include(request, response);
+				 request.getRequestDispatcher("recoveryPassword.jsp").include(request, response);
 			    }
 			else {
-			      request.getRequestDispatcher("email_verify.html").include(request, response);
+			      request.getRequestDispatcher("email_verify.jsp").include(request, response);
 			      session.setMaxInactiveInterval(20);
 
 				}
@@ -69,7 +69,7 @@ public class EmailVerify extends HttpServlet {
 		else{
 			
 
-			request.getRequestDispatcher("forget_password.html").include(request, response);
+			request.getRequestDispatcher("forget_password.jsp").include(request, response);
 			out.print("<center><h1>Your session has timed out ,try again ! </h1></center>");
 		}
 		
