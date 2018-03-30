@@ -97,7 +97,7 @@
 			  
 			  <div class="form-inline m-3">
               <label for="userTypeInput" class="col-4 ">User Type.</label>
-             <select class="form-control form-control col-sm-auto col-md-8 border-success" >
+             <select class="form-control form-control col-sm-auto col-md-8 border-success" name="user_type">
 				 <option VALUE=0 <%if(m.getUserLevel()==Member.REGULAR_MEMBER){
 					 out.print("selected");
 				 }

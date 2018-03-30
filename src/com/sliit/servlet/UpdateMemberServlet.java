@@ -42,6 +42,8 @@ public class UpdateMemberServlet extends HttpServlet {
 		m.setAddress(request.getParameter("address"));
 		m.setHomeTel(request.getParameter("homeTel"));
 		m.setDob(Date.valueOf(request.getParameter("dob")));
+		int ulevel = Integer.parseInt(request.getParameter("user_type"));
+		m.setUserLevel(ulevel);
 		MemberDao dao = new MemberDao();
 		dao.updateMember(m);
 		
