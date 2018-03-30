@@ -4,7 +4,7 @@ USE `4CKnowledge`;
 --
 -- Host: localhost    Database: 4CKnowledge
 -- ------------------------------------------------------
--- Server version	5.7.21
+-- Server version	5.5.5-10.1.31-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,11 +33,11 @@ CREATE TABLE `members` (
   `mobile` char(12) DEFAULT NULL,
   `home_tel` char(12) DEFAULT NULL,
   `dob` date DEFAULT NULL,
-  `user_level` varchar(45) DEFAULT NULL,
+  `user_level` int(11) NOT NULL DEFAULT '0',
   `password` varchar(150) DEFAULT NULL,
   `verification_code` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`mid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,6 +46,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
+INSERT INTO `members` VALUES (1,'admin','admin','admin','','','',NULL,2,'202cb962ac59075b964b07152d234b70',NULL),(2,'gayashan','kariyawasam','gmk@mail.com','colombo','1231','123124','2012-12-12',1,'202cb962ac59075b964b07152d234b70',NULL),(3,'hasitha','senevirathne','hasitha@mail.com','Anuradapura','1231','12312','2010-12-21',1,'202cb962ac59075b964b07152d234b70',NULL),(4,'Krishan','','krishan@mail.com','Jaela','1231','123123','2010-12-12',1,'202cb962ac59075b964b07152d234b70',NULL),(5,'sam','smith','sam@mail.com','Newyork','1212','123123','2012-12-12',0,'202cb962ac59075b964b07152d234b70',NULL),(6,'Olivia','black','black@mail.com','calfonia','1212','1212121','2011-02-01',0,'202cb962ac59075b964b07152d234b70',NULL);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-27  4:02:27
+-- Dump completed on 2018-03-30 16:48:43
