@@ -5,7 +5,7 @@ This 4CKnowledge Web Application was developed for the use of of  members of the
 
 ## Requirements
 
-* JFoenix requires **Java 1.8** or above
+* This project requires **Java 1.8** or above
 * Apache Maven
 * Any <a href="https://en.wikipedia.org/wiki/Web_container">Java Servlet Container application</a> like **Apache Tomcat Server**
 
