@@ -58,11 +58,13 @@ public class InterestServlet extends HttpServlet {
 					}
 		        
 		        }
-		        
-		    	request.getRequestDispatcher("index.jsp").include(request, response);
+				 session.setMaxInactiveInterval(10);
+			    request.getRequestDispatcher("register_successfully.jsp").include(request, response);
+		        out.print("<center><h1>Registration Successful. Pleace login</h1></center>");
+
 		       }
 		       else {
-		    	   response.getWriter().write("<center><h1>Registration Successful.Pleace login</h1></center>");
+		    	   
 		    	    out.print("<center><h1>You should select at least one interest </h1></center>");
 
 					request.getRequestDispatcher("interest.jsp").include(request, response);
