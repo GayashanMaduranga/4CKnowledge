@@ -20,7 +20,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
       <ul class="navbar-nav mr-auto" id="hideForLarge">
         <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+        <%
+		  Member user = (Member)session.getAttribute("user");
+		  if(user.getUserLevel()!=Member.REGULAR_MEMBER){  
+		%>
         <li class="nav-item"> <a class="nav-link" href="displaymembers">Members</a> </li>
+         <%
+        }
+        %>
         <li class="nav-item"> <a class="nav-link" href="profiledetails">My Profile</a> </li>
          <li class="nav-item"> <a class="nav-link" href="logout">Logout</a> </li>
        
@@ -43,8 +50,16 @@
       <nav class="nav col-lg-2" style="background: #005670;" id="hide">
 		 
 		<div class="navbar d-block" >
+	
 	  	<a href="" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/home.svg" alt="" width="40px" style="padding: 8px;"/>Home</a>
-		  <a href="" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/user.svg" alt="" width="35px" style="padding: 8px;" />Members</a>
+		   <%
+		 
+		  if(user.getUserLevel()!=Member.REGULAR_MEMBER){  
+		%>
+		  <a href="displaymembers" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/user.svg" alt="" width="35px" style="padding: 8px;" />Members</a>
+		 <%
+		  }
+		  %>
 		  <a href="" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/book.svg" alt="" width="34px" style="padding: 8px;"/>Books</a>
 	    </div>
 		
@@ -71,20 +86,35 @@
               <label for="lnameInput" class="col-4 ">Last Name</label>
               <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="lnameInput" name="lname" placeholder="Enter Last Name" value="${selected_member.lname}">
               </div>
-          
+          	  
+			   <%
+		 
+		  if(user.getUserLevel()==Member.OWNER){  
+		%>
 			  <div class="form-inline m-3">
               <label for="emailInput" class="col-4 ">Email</label>
                <input type="email" class="form-control col-sm-auto col-md-8 border-success" id="emailInput" name="email" placeholder="Enter Email" value="${selected_member.email}">
               </div>
 			  
+			   <%
+		 
+		  }
+		%>
+			  
 			  <div class="form-inline m-3">
               <label for="addressInput" class="col-4 ">Address</label>
               <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="addressInput" name="address" placeholder="Enter Address" value="${selected_member.address}">
               </div>
+			
+				   <%
+		 
+		  if(user.getUserLevel()==Member.OWNER){  
+		%>
 			  
 			  <div class="form-inline m-3">
               <label for="mobileInput" class="col-4 ">Mobile</label>
               <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="mobileInput" name="mobile" placeholder="Enter Mobile No." value="${selected_member.mobile}">
+             
               </div>
 			  <div class="form-inline m-3">
               <label for="homeTelInput" class="col-4 ">Home Tel.</label>
@@ -114,7 +144,9 @@
 			    </select>
               </div>
               
-              
+               <%
+		  }
+		  %>
              
 		   
 			  <section class="mb-5">
@@ -186,7 +218,16 @@
 		        </div>
 			</div>
 			</section>
+			
+			   <%
+		 
+		  if(user.getUserLevel()==Member.OWNER){  
+		%>
             <button type="submit" class="btn btn-primary ">Update</button>
+            
+            <%
+		  }
+            %>
           </form>
         </div>
       </section>

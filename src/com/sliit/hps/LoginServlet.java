@@ -60,15 +60,15 @@ public class LoginServlet extends HttpServlet {
 				MemberDao dao = new MemberDao();
 				
 				Member user = dao.getMembersByEmail(Email);
-				if(user == null) {
-					System.out.println("###################################");
-					System.out.println("###################################");
-					System.out.println("###################################");
-					System.out.println("###################################");
-				}
+			
 				
 				session.setAttribute("user", user);
+				
+				if(user.getUserLevel()!=Member.REGULAR_MEMBER) {
 				 response.sendRedirect("memberManagementScreen.jsp");
+				}else {
+					response.sendRedirect("profileDetails.jsp");
+				}
 				 
 				 
 			    }

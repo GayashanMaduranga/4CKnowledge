@@ -23,14 +23,7 @@
     left: 0;
     right: 0;
 
-  
-	
-	 
-		 
-		 
-		
-		
-			
+
 		  
 		width:500px;
 		background-color: rgba(255, 255, 255, 0.61);
@@ -77,10 +70,6 @@
     <label for="Code">Digit:</label> 
     <input type="number" class="form-control" id="Code" name="Code" placeholder="Enter Verification Code"  pattern="[0-9]*$"  required> 
       
-      
-   
-	
-   
 
     <button type="submit" class="btn btn-default">Continue</button>
     </div>

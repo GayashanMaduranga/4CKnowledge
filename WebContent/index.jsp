@@ -175,7 +175,7 @@ th, td {
    
     <div class="form-group">
       <label for="memName">First Name:</label>
-      <input type="text" class="form-control" id="memName" placeholder="Enter Member Name" name="Fnname" pattern="[A-Za-z ]{1,40}" required  title="Member Name should only contain letters. e.g. Saman" >
+      <input type="text" class="form-control" id="memName" placeholder="Enter Member Name" name="Fname" pattern="[A-Za-z ]{1,40}" required  title="Member Name should only contain letters. e.g. Saman" >
     </div>
     
     <div class="form-group">

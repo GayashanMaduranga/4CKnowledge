@@ -20,7 +20,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
       <ul class="navbar-nav mr-auto" id="hideForLarge">
         <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+       <%
+		  Member user = (Member)session.getAttribute("user");
+		  if(user.getUserLevel()!=Member.REGULAR_MEMBER){  
+		%>
         <li class="nav-item"> <a class="nav-link" href="displaymembers">Members</a> </li>
+         <%
+        }
+        %>
         <li class="nav-item"> <a class="nav-link" href="profiledetails">My Profile</a> </li>
          <li class="nav-item"> <a class="nav-link" href="logout">Logout</a> </li>
        
@@ -44,7 +51,14 @@
 		 
 		<div class="navbar d-block" >
 	  	<a href="" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/home.svg" alt="" width="40px" style="padding: 8px;"/>Home</a>
-		  <a href="" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/user.svg" alt="" width="35px" style="padding: 8px;" />Members</a>
+		  <%
+		 
+		  if(user.getUserLevel()!=Member.REGULAR_MEMBER){  
+		%>
+		  <a href="displaymembers" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/user.svg" alt="" width="35px" style="padding: 8px;" />Members</a>
+		 <%
+		  }
+		  %>
 		  <a href="" class="nav-item nav-link text-white sideNavBtn" style="padding-left: 0;"><img src="images/book.svg" alt="" width="34px" style="padding: 8px;"/>Books</a>
 	    </div>
 		

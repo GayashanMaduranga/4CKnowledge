@@ -24,7 +24,7 @@ public class RegisterUserDataStore {
                   prep.setString(4,add);
                   prep.setString(5, mobile);
                   prep.setString(6, Htel);
-                  prep.setString(7,"1");
+                  prep.setInt(7,0);
                   prep.setString(8,password);
                   prep.setString(9,Dob);
                 
