@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import com.sliit.datamodel.InterestsDao;
 import com.sliit.datamodel.MemberDao;
+import com.sliit.entities.Interests;
 import com.sliit.entities.Member;
 
 public class MyTest {
@@ -47,22 +49,22 @@ public class MyTest {
 //		
 //	}
 //	
-	@Test
-	public void canUpdateMember() {
-		MemberDao dao = new MemberDao();
-		ArrayList<Member> members =(ArrayList<Member>) dao.searchMembers("kaiz");
-		
-		System.out.println("update" + members.get(0));
-		
-		members.get(0).setFname("test");
-		
-		
-		dao.updateMember(members.get(0));
-		System.out.println("update" + members.get(0));
-		
-		
-	}
-	
+//	@Test
+//	public void canUpdateMember() {
+//		MemberDao dao = new MemberDao();
+//		ArrayList<Member> members =(ArrayList<Member>) dao.searchMembers("kaiz");
+//		
+//		System.out.println("update" + members.get(0));
+//		
+//		members.get(0).setFname("test");
+//		
+//		
+//		dao.updateMember(members.get(0));
+//		System.out.println("update" + members.get(0));
+//		
+//		
+//	}
+//	
 //	@Test
 //	public void canInsertMember() {
 //		
@@ -79,4 +81,32 @@ public class MyTest {
 //		
 //		dao.insertMember(member);
 //	}
+	
+//	@Test
+//	public void canUpdateInterests() {
+//		
+//		Interests interests = new Interests();
+//		
+//		interests.setMid(2);
+//		interests.getInterestId().add(1);
+//		interests.getInterestId().add(3);
+//		
+//		InterestsDao dao = new InterestsDao();
+//		dao.updateInterests(interests);
+//		
+//	}
+	
+	
+	@Test
+	public void canSearchForInterest() {
+		
+		InterestsDao dao = new InterestsDao();
+		Interests interests =  dao.getMemberInterest(1);
+		
+		System.out.println("hello World : " +interests.getInterestId().contains(Interests.ARTIFITIAL_INTELIGENCE));
+		
+		
+	}
+	
+	
 }

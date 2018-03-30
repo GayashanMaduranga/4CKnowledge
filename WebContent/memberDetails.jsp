@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@page import="com.sliit.entities.Member"%>
+<%@page import="com.sliit.entities.Interests"%>
+<%@page import="com.sliit.datamodel.InterestsDao"%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -46,7 +49,14 @@
 	    </div>
 		
 		</nav>
-		
+		 <%
+              
+              	Member m = (Member)session.getAttribute("selected_member");
+              InterestsDao dao = new InterestsDao();
+      			Interests interests =  dao.getMemberInterest(m.getId());
+      			System.out.println(m.getUserLevel());
+              
+              %>
       <section class="col-lg-10" id="content" style="background: #EFEFEF">
         <div class="container-fluid bg-white p-2">
 			
@@ -78,7 +88,7 @@
               </div>
 			  <div class="form-inline m-3">
               <label for="homeTelInput" class="col-4 ">Home Tel.</label>
-              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="homeTelInput" name="homeTel"placeholder="Enter Home Tel." value="${selected_member.homeTel}">
+              <input type="text" class="form-control col-sm-auto col-md-8 border-success" id="homeTelInput" name="homeTel" placeholder="Enter Home Tel." value="${selected_member.homeTel}">
               </div>
 			  <div class="form-inline m-3">
               <label for="dobInput" class="col-4 ">Date Of Birth.</label>
@@ -88,11 +98,24 @@
 			  <div class="form-inline m-3">
               <label for="userTypeInput" class="col-4 ">User Type.</label>
              <select class="form-control form-control col-sm-auto col-md-8 border-success" >
-				 <option>Member</option>
-				 <option>Community Admit</option>
-				 <option>Owner</option>
+				 <option VALUE=0 <%if(m.getUserLevel()==Member.REGULAR_MEMBER){
+					 out.print("selected");
+				 }
+					 %>>Member</option>
+				
+				 <option VALUE=1 <%if(m.getUserLevel()==Member.COMMUNITY_ADMIN){
+					 out.print("selected");
+				 }
+					 %>>Community Admit</option>
+				 <option VALUE=2 <%if(m.getUserLevel()==Member.OWNER){
+					 out.print("selected");
+				 }
+					 %>>Owner</option>
 			    </select>
               </div>
+              
+              
+             
 		   
 			  <section class="mb-5">
 				   <h6 class="modal-header mb-5">Member Interests</h6>
@@ -101,38 +124,62 @@
 			      <div class="col-lg-6">
 					<div class="mb-2">
               <label  class="form-check-inline">Artifitial Inteligence</label>
-              <input type="checkbox">
+              <input type="checkbox" name="interest" VALUE=1 <% 
+              if(interests.getInterestId().contains(Interests.ARTIFITIAL_INTELIGENCE)){
+            	  out.print("checked=\"checked\"");
+              }
+              %>>
 						
               		</div>
 					
 					<div class="mb-2">
               <label  class="form-check-inline">Si-Fi</label>
-              <input type="checkbox">
+              <input type="checkbox" name="interest" VALUE=2 <% 
+              if(interests.getInterestId().contains(Interests.SI_FI)){
+            	  out.print("checked=\"checked\"");
+              }
+              %>>
 						
               		</div>
 					  
 					  <div class="mb-2">
               <label  class="form-check-inline">Image Processing</label>
-              <input type="checkbox">
+              <input type="checkbox" name="interest" VALUE=3 <% 
+              if(interests.getInterestId().contains(Interests.IMAGE_PROCESSING)){
+            	  out.print("checked=\"checked\"");
+              }
+              %>>
 						
               		</div>
 				  </div>
 			      <div class="col-lg-6">
 					<div class="mb-2">
               <label  class="form-check-inline">Politics</label>
-              <input type="checkbox">
+              <input type="checkbox" name="interest" VALUE=4 <% 
+              if(interests.getInterestId().contains(Interests.POLITICS)){
+            	  out.print("checked=\"checked\"");
+              }
+              %>>
 						
               		</div>
 					
 					<div class="mb-2">
               <label  class="form-check-inline">Middleware</label>
-              <input type="checkbox">
+              <input type="checkbox" name="interest" VALUE=5 <% 
+              if(interests.getInterestId().contains(Interests.MIDDLEWARE)){
+            	  out.print("checked=\"checked\"");
+              }
+              %>>
 						
               		</div>
 					  
 					  <div class="mb-2">
               <label  class="form-check-inline">Religion</label>
-              <input type="checkbox">
+              <input type="checkbox" name="interest" VALUE=6 <% 
+              if(interests.getInterestId().contains(Interests.RELIGION)){
+            	  out.print("checked=\"checked\"");
+              }
+              %>>
 						
               		</div>
 				  </div>

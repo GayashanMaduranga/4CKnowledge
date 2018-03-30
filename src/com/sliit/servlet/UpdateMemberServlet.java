@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sliit.datamodel.InterestsDao;
 import com.sliit.datamodel.MemberDao;
+import com.sliit.entities.Interests;
 import com.sliit.entities.Member;
 
 /**
@@ -42,6 +44,23 @@ public class UpdateMemberServlet extends HttpServlet {
 		m.setDob(Date.valueOf(request.getParameter("dob")));
 		MemberDao dao = new MemberDao();
 		dao.updateMember(m);
+		
+		
+		String[] interest;
+		interest = request.getParameterValues("interest");
+		
+		Interests interestList = new Interests();
+		interestList.setMid(m.getId());
+		
+		for(String val: interest) {
+			
+			interestList.getInterestId().add(Integer.parseInt(val));
+			
+		}
+		
+		
+		InterestsDao iDao = new InterestsDao();
+		iDao.updateInterests(interestList);
 		
 		System.out.println("Updated");
 		
