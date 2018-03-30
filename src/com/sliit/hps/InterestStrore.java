@@ -1,6 +1,6 @@
 package com.sliit.hps;
 
-import static net.code.kr.DBConnection.getConnectionToDatabase;
+import static com.sliit.datamodel.DBConnection.getConnectionToDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
