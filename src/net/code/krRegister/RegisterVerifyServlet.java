@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import javax.mail.Address;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.code.kr.GetVerifyCode;
+
 
 /**
  * Servlet implementation class RegisterVerifyServlet
@@ -74,7 +74,7 @@ public class RegisterVerifyServlet extends HttpServlet {
 			    }
 			else {
 			      request.getRequestDispatcher("Register_email_verify.jsp").include(request, response);
-			      session.setMaxInactiveInterval(20);
+			      session.setMaxInactiveInterval(60*3);
 
 				}
 			}

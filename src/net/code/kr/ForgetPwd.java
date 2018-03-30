@@ -54,7 +54,7 @@ public class ForgetPwd extends HttpServlet {
 			finally {
 				HttpSession session=request.getSession();
 				session.setAttribute("Email",Email);
-				session.setMaxInactiveInterval(60);
+				session.setMaxInactiveInterval(60*5);
 
 
 
@@ -67,7 +67,7 @@ public class ForgetPwd extends HttpServlet {
 				
 			
 				request.getRequestDispatcher("forget_password.jsp").include(request, response);
-				out.print("<center><h3>Sorry, username not founded</h3></center>");
+				out.print("<center><h3>Sorry, username not found !</h3></center>");
 			}
 		}
 		catch (SQLException e) {
