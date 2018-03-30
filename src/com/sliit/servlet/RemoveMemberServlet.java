@@ -47,7 +47,7 @@ public class RemoveMemberServlet extends HttpServlet implements Serializable{
 		members = (ArrayList<Member>)dao.getAllMembers();
 	 	session.setAttribute("members", members);
 		
-		response.sendRedirect("memberManagementScreen.jsp");
+		response.sendRedirect("displaymembers");
 		
 		
 	}
