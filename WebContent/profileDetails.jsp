@@ -69,14 +69,13 @@
               InterestsDao dao = new InterestsDao();
       			Interests interests =  dao.getMemberInterest(m.getId());
       		
-              
+      			 session.setAttribute("Email", m.getEmail());
               %>
       <section class="col-lg-10" id="content" style="background: #EFEFEF">
         <div class="container-fluid bg-white p-2">
 			
           <form class="text-center p-2" action="updateprofile" method="post">
-			  <h5 class="modal-header">Member Details</h5>
-			  
+			  <h5 class="modal-header">User Details<a class="bg-primary text-white btn" href="recoveryPassword.jsp">Change Password</a></h5>		  
               <div class="form-inline m-3">
               <label for="fnameInput" class="col-4 ">First Name</label>
               <input type="text" class="form-control border-success col-sm-auto col-md-8" id="fnameInput" name="fname" placeholder="Enter First Name" width="100%" value="${user.fname}">
