@@ -149,7 +149,7 @@ ALTER TABLE `members`
 -- Constraints for table `memberInterests`
 --
 ALTER TABLE `memberInterests`
-  ADD CONSTRAINT `fk_memberInterest_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`mid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_memberInterest_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`mid`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_memberInterests_2` FOREIGN KEY (`interset_id`) REFERENCES `Interests` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
